@@ -1,0 +1,54 @@
+Dado as informações abaixo, referentes ao operador nacional do sistema elétrico - ONS, cujo o glossário está disponível no url https://www.ons.org.br/paginas/conhecimento/glossario
+
+Agente: Representa um agente do setor elétrico. Ex: Furnas, CEMIG. 
+Possui os seguintes atributos: 
+    age_id: Identificador do Agente 
+    descricao: nome detalhado do agente (descrição)
+    nome: nome comumente utilizado do agente 
+    tipo: indica se é um agente da transmissão ou da geração de energia. Deve ser criado na classe Transmissao ou Geracao 
+
+
+Subestação: Representa uma subestação ou também conhecida como Instalação, que é uma area física que contém diversos equipamentos do setor elétrico. 
+Seus dados estão no arquivo  subestacao.csv 
+Possui os seguintes atributos: 
+    ins_id: Indentificador da subestação 
+    nome: nome identicador da subestação 
+    descricao: nome detalhado / descrição da subestação
+
+
+ 
+Linha de Transmissão: Representa uma linha de transmissão, que é um equipamento do setor elétrico, que transmite energia entre dois pontos. Duas instalações/subestações
+Possui os seguintes atributos:
+    eqp_id: Identificador do equipamento
+    age_id: Identificador do agente proprietário (equivalente ao age_id) do Agente 
+    descrição: Nome da linha de transmissão 
+    instalacao_de: Identificador da subestação  em que a linha de transmissão está ligada no terminal DE
+    instalacao_para: indentificador sa subestação em que a linha de transmissão está ligada no terminal PARA 
+caso as duas instalações estejam preenchidas, mais de uma ligação deverá ser criada 
+
+
+Transformador: Representa um transformador de potencia e frequencia, que é um equipamento do setor elétrico, conheçido também como TRAFO, seus dados estão no arquivo Transformador.csv ( csv separado por vírtula)
+Possui os seguintes atributos:
+    eqp_id: Identificador do equipamento
+    tpeqp_id: Identificador do tipo de equipamento
+    age_id_prop: identificador do agente proprietário do transformador 
+    nomelongo: Nome que identifica o transformador 
+    ins_id: Identificador da subestação em que o equipamento está 
+
+
+Usina: Representa uma usina  que gera energia
+Possui os seguintes atributos:
+    usi_id: Identificador da Usina 
+    ins_id: identificador da subestação em que a usina está ligada
+    nome_usina: Nome identificador da usina 
+    tipo: Identifica o tipo de usina, os tipos são: Reversivel,Hidroelétrica,Bombeamento,Nuclear,Térmica,Eolielétrica,Fotovoltaica,Solar Termica Concentrada 
+    age_id: Identificador do agente proprietário da usina 
+    potencianominal: potencia total da usina
+ 
+
+O objetivo é criar uma base de conhecimento, utilizando o formato RDF, gerar as classes e propriedades de acordo com as informações passadas acima, 
+e também carregar os dados dos arquivos, gerando um arquivo final que possa  ser importado no  GraphDB
+
+Poderia gerar para mim o vocabulário de classes em um arquivo turtle ?
+
+

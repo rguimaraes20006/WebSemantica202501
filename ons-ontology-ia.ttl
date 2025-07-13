@@ -1,0 +1,142 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ons: <http://www.ons.org.br/ontologia/sin#> .
+
+# Ontologia base
+ons: a owl:Ontology ;
+    rdfs:label "Ontologia do Sistema Elétrico Nacional (SIN) - ONS" .
+
+### Classes
+
+ons:Agente a owl:Class ;
+    rdfs:label "Agente" ;
+    rdfs:comment "Representa um agente do setor elétrico, como Furnas, CEMIG." .
+
+ons:Transmissao a owl:Class ;
+    rdfs:subClassOf ons:Agente ;
+    rdfs:label "Transmissão" ;
+    rdfs:comment "Agente responsável pela transmissão de energia." .
+
+ons:Geracao a owl:Class ;
+    rdfs:subClassOf ons:Agente ;
+    rdfs:label "Geração" ;
+    rdfs:comment "Agente responsável pela geração de energia." .
+
+ons:Subestacao a owl:Class ;
+    rdfs:label "Subestação" ;
+    rdfs:comment "Representa uma subestação (Instalação) que contém equipamentos elétricos." .
+
+ons:Equipamento a owl:Class ;
+    rdfs:label "Equipamento" ;
+    rdfs:comment "Equipamento do setor elétrico." .
+
+ons:LinhaTransmissao a owl:Class ;
+    rdfs:subClassOf ons:Equipamento ;
+    rdfs:label "Linha de Transmissão" ;
+    rdfs:comment "Linha de transmissão que conecta duas subestações." .
+
+ons:Transformador a owl:Class ;
+    rdfs:subClassOf ons:Equipamento ;
+    rdfs:label "Transformador" ;
+    rdfs:comment "Transformador de potência e frequência (TRAFO)." .
+
+ons:Usina a owl:Class ;
+    rdfs:label "Usina" ;
+    rdfs:comment "Representa uma usina que gera energia elétrica." .
+
+### Propriedades comuns
+
+# Propriedades para Agente
+ons:age_id a owl:DatatypeProperty ;
+    rdfs:domain ons:Agente ;
+    rdfs:range xsd:string ;
+    rdfs:label "Identificador do Agente" .
+
+ons:descricao a owl:DatatypeProperty ;
+    rdfs:domain ons:Agente ;
+    rdfs:range xsd:string ;
+    rdfs:label "Descrição do Agente" .
+
+ons:nome a owl:DatatypeProperty ;
+    rdfs:domain ons:Agente ;
+    rdfs:range xsd:string ;
+    rdfs:label "Nome do Agente" .
+
+# Propriedades para Subestação
+ons:ins_id a owl:DatatypeProperty ;
+    rdfs:domain ons:Subestacao ;
+    rdfs:range xsd:string ;
+    rdfs:label "Identificador da Subestação" .
+
+ons:descricaoSubestacao a owl:DatatypeProperty ;
+    rdfs:domain ons:Subestacao ;
+    rdfs:range xsd:string ;
+    rdfs:label "Descrição da Subestação" .
+
+# Propriedades para Equipamentos
+ons:eqp_id a owl:DatatypeProperty ;
+    rdfs:domain ons:Equipamento ;
+    rdfs:range xsd:string ;
+    rdfs:label "Identificador do Equipamento" .
+
+ons:age_id_prop a owl:ObjectProperty ;
+    rdfs:domain ons:Equipamento ;
+    rdfs:range ons:Agente ;
+    rdfs:label "Agente Proprietário" .
+
+# Propriedades para Linha de Transmissão
+ons:instalacao_de a owl:ObjectProperty ;
+    rdfs:domain ons:LinhaTransmissao ;
+    rdfs:range ons:Subestacao ;
+    rdfs:label "Subestação Terminal DE" .
+
+ons:instalacao_para a owl:ObjectProperty ;
+    rdfs:domain ons:LinhaTransmissao ;
+    rdfs:range ons:Subestacao ;
+    rdfs:label "Subestação Terminal PARA" .
+
+# Propriedades para Transformador
+ons:tpeqp_id a owl:DatatypeProperty ;
+    rdfs:domain ons:Transformador ;
+    rdfs:range xsd:string ;
+    rdfs:label "Tipo do Equipamento" .
+
+ons:nomelongo a owl:DatatypeProperty ;
+    rdfs:domain ons:Transformador ;
+    rdfs:range xsd:string ;
+    rdfs:label "Nome Longo do Transformador" .
+
+ons:subestacao a owl:ObjectProperty ;
+    rdfs:domain ons:Equipamento ;
+    rdfs:range ons:Subestacao ;
+    rdfs:label "Localizado em Subestação" .
+
+# Propriedades para Usina
+ons:usi_id a owl:DatatypeProperty ;
+    rdfs:domain ons:Usina ;
+    rdfs:range xsd:string ;
+    rdfs:label "Identificador da Usina" .
+
+ons:tipoUsina a owl:DatatypeProperty ;
+    rdfs:domain ons:Usina ;
+    rdfs:range xsd:string ;
+    rdfs:label "Tipo de Usina" .
+
+ons:potenciaNominal a owl:DatatypeProperty ;
+    rdfs:domain ons:Usina ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "Potência Nominal da Usina" .
+
+# Relação com agente proprietário
+ons:agenteProprietario a owl:ObjectProperty ;
+    rdfs:domain ons:Usina ;
+    rdfs:range ons:Agente ;
+    rdfs:label "Agente Proprietário da Usina" .
+
+# Subestação associada à Usina
+ons:instalacaoUsina a owl:ObjectProperty ;
+    rdfs:domain ons:Usina ;
+    rdfs:range ons:Subestacao ;
+    rdfs:label "Subestação onde a Usina está ligada" .

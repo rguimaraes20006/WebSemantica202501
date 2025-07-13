@@ -1,0 +1,275 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.ons.org.br/ontologies/2025/6/sin/"
+     xml:base="http://www.ons.org.br/ontologies/2025/6/sin/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:sin="http://www.ons.org.br/ontologies/2025/6/sin#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.ons.org.br/ontologies/2025/6/sin"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ons.org.br/ontologies/2025/6/sin#ehdono -->
+
+    <owl:ObjectProperty rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#ehdono">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#pertencea"/>
+        <rdfs:domain rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#Agente"/>
+        <rdfs:range rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#Equipamento"/>
+        <rdfs:range rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#Usina"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ons.org.br/ontologies/2025/6/sin#instaladoem -->
+
+    <owl:ObjectProperty rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#instaladoem">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#Equipamento"/>
+        <rdfs:domain rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#Usina"/>
+        <rdfs:range rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#Subestacao"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ons.org.br/ontologies/2025/6/sin#pertencea -->
+
+    <owl:ObjectProperty rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#pertencea">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ons.org.br/ontologies/2025/6/sin#temPotenciaNominal -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#temPotenciaNominal">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#Equipamento"/>
+        <rdfs:domain rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#Usina"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ons.org.br/ontologies/2025/6/sin#Agente -->
+
+    <owl:Class rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#Agente">
+        <owl:disjointWith rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#Usina"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ons.org.br/ontologies/2025/6/sin#Bombeamento -->
+
+    <owl:Class rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#Bombeamento">
+        <rdfs:subClassOf rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#Usina"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ons.org.br/ontologies/2025/6/sin#Eolieletrica -->
+
+    <owl:Class rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#Eolieletrica">
+        <rdfs:subClassOf rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#Usina"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ons.org.br/ontologies/2025/6/sin#Equipamento -->
+
+    <owl:Class rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#Equipamento"/>
+    
+
+
+    <!-- http://www.ons.org.br/ontologies/2025/6/sin#Fotovoltaica -->
+
+    <owl:Class rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#Fotovoltaica">
+        <rdfs:subClassOf rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#Usina"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ons.org.br/ontologies/2025/6/sin#Geracao -->
+
+    <owl:Class rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#Geracao">
+        <rdfs:subClassOf rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#Agente"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ons.org.br/ontologies/2025/6/sin#Hidroeletrica -->
+
+    <owl:Class rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#Hidroeletrica">
+        <rdfs:subClassOf rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#Usina"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ons.org.br/ontologies/2025/6/sin#LinhaTransmissao -->
+
+    <owl:Class rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#LinhaTransmissao">
+        <rdfs:subClassOf rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#Equipamento"/>
+        <owl:disjointWith rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#Transformador"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ons.org.br/ontologies/2025/6/sin#Nuclear -->
+
+    <owl:Class rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#Nuclear">
+        <rdfs:subClassOf rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#Usina"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ons.org.br/ontologies/2025/6/sin#Reversivel -->
+
+    <owl:Class rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#Reversivel">
+        <rdfs:subClassOf rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#Usina"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ons.org.br/ontologies/2025/6/sin#SolarTermicaConcentrada -->
+
+    <owl:Class rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#SolarTermicaConcentrada">
+        <rdfs:subClassOf rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#Usina"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ons.org.br/ontologies/2025/6/sin#Subestacao -->
+
+    <owl:Class rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#Subestacao"/>
+    
+
+
+    <!-- http://www.ons.org.br/ontologies/2025/6/sin#Termica -->
+
+    <owl:Class rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#Termica">
+        <rdfs:subClassOf rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#Usina"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ons.org.br/ontologies/2025/6/sin#Transformador -->
+
+    <owl:Class rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#Transformador">
+        <rdfs:subClassOf rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#Equipamento"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ons.org.br/ontologies/2025/6/sin#Transmissao -->
+
+    <owl:Class rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#Transmissao">
+        <rdfs:subClassOf rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#Agente"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ons.org.br/ontologies/2025/6/sin#Usina -->
+
+    <owl:Class rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#Usina"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ons.org.br/ontologies/2025/6/sin#agenteteste1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#agenteteste1">
+        <rdf:type rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#Transmissao"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.ons.org.br/ontologies/2025/6/sin#equipamentoteste1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#equipamentoteste1">
+        <rdf:type rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#LinhaTransmissao"/>
+        <sin:pertencea rdf:resource="http://www.ons.org.br/ontologies/2025/6/sin#agenteteste1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#Agente"/>
+            <rdf:Description rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#Equipamento"/>
+            <rdf:Description rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#Subestacao"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#Bombeamento"/>
+            <rdf:Description rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#Eolieletrica"/>
+            <rdf:Description rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#Fotovoltaica"/>
+            <rdf:Description rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#Hidroeletrica"/>
+            <rdf:Description rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#Nuclear"/>
+            <rdf:Description rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#Reversivel"/>
+            <rdf:Description rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#SolarTermicaConcentrada"/>
+            <rdf:Description rdf:about="http://www.ons.org.br/ontologies/2025/6/sin#Termica"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

@@ -1,0 +1,35 @@
+
+#Usinas pertencendo a mais de um agente:
+PREFIX ons: <http://www.ons.org.br/ontologia/sin#>
+SELECT ?usina  (COUNT(DISTINCT ?agente) AS ?qtdAgentes)
+WHERE {
+  ?usina a ons:Usina  .
+    ?usina ons:age_id ?agente .
+    
+}
+GROUP BY ?usina
+HAVING (?qtdAgentes > 1)
+
+
+
+#Agentes que não são transmissoras e estão associados a linhas de transmissão:
+PREFIX ons: <http://www.ons.org.br/ontologia/sin#>
+
+SELECT DISTINCT ?agente ?linha
+WHERE {
+  ?agente a ons:Geracao .
+  FILTER NOT EXISTS {
+    ?agente a ons:Transmissao .
+  }
+  ?linha ons:age_id ?agente .
+}
+
+
+#agentes da transmissão que esttão associadoas a usinas 
+PREFIX ons: <http://www.ons.org.br/ontologia/sin#>
+SELECT DISTINCT ?agente ?usina
+WHERE {
+  ?usina a ons:Usina .
+  ?usina ons:age_id ?agente .
+  ?agente a ons:Transmissao .
+}           
